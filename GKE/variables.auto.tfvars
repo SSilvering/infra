@@ -1,0 +1,10 @@
+gcp_credentials          = "bootcamp-314206-662ae2a47129.json"
+gcp_project_id           = "bootcamp-314206"
+gcp_region               = "europe-west3"
+gcp_cluster_name         = "cluster-1"
+gke_zones                = ["europe-west3-a"]
+gke_regional             = false
+gke_network              = "default"
+gke_subnetwork           = "default"
+gke_nodepool_name        = "default-node-pool"
+gke_service_account_name = "terraform-sa@bootcamp-314206.iam.gserviceaccount.com"
