@@ -16,7 +16,7 @@ resource "aws_vpc" "eks-vpc" {
 }
 
 resource "aws_subnet" "eks-subnet" {
-  count = 2
+  count = var.subnet-count
 
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   cidr_block              = "10.0.${count.index}.0/24"
@@ -47,7 +47,7 @@ resource "aws_route_table" "eks-rt" {
 }
 
 resource "aws_route_table_association" "eks-rt-asso" {
-  count = 2
+  count = var.subnet-count
 
   subnet_id      = aws_subnet.eks-subnet.*.id[count.index]
   route_table_id = aws_route_table.eks-rt.id

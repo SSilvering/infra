@@ -48,3 +48,9 @@ variable "scan-on-push" {
   type    = bool
   default = true
 }
+
+variable "subnet-count" {
+  type    = number
+  description = "Number of subnet for worker nodes"
+  default = 2
+}
