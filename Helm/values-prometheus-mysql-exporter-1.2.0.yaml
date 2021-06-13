@@ -1,0 +1,24 @@
+# Default values for prometheus-mysql-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+serviceMonitor:
+  # enabled should be set to true to enable prometheus-operator discovery of this service
+  enabled: true
+  # interval is the interval at which metrics should be scraped
+  interval: 30s
+  # scrapeTimeout is the timeout after which the scrape is ended
+  scrapeTimeout: 10s
+  # additionalLabels is the set of additional labels to add to the ServiceMonitor
+  additionalLabels: 
+    releases: prometheus
+
+# mysql connection params which build the DATA_SOURCE_NAME env var of the docker container
+mysql:
+  db: "chat"
+  host: "chat-mysql-headless"
+  pass: "flask"
+  port: 3306
+  user: "flask"
